@@ -1,0 +1,82 @@
+%!TEX program = xelatex
+
+\documentclass[12pt, a4paper]{report}
+\usepackage[legalpaper, a4paper, margin=2cm]{geometry}
+\usepackage[english]{babel}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=blue,]{hyperref}
+\usepackage{libs/utbmcovers}
+\usepackage{sectsty}
+\usepackage{csquotes}
+
+\usepackage[
+	backend=biber,
+	%style=authortitle,
+	%citestyle=verbose-ibid,
+	abbreviate=false,
+	%language=french,
+	datamodel=ISO690UTBM
+]{biblatex} % ISO 690 Utbm
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[justification=centering]{caption}
+\usepackage{svg}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+% Config
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\input{biblatex.cfg}
+\input{glossary}
+\input{commands}
+
+
+%----------------------------------------
+% UTBM covers configuration
+%----------------------------------------
+
+\setutbmfrontillustration{assets/images/ANSYS_logo.png}
+\setutbmtitle{Optimization of Eigensolvers with GPU}
+\setutbmsubtitle{Internship Report ST50 - P2024}
+\setutbmstudent{Gabriel Schwab}
+\setutbmstudentdepartment{Informatique}
+\setutbmstudentpathway{Vision Artificielle}
+\setutbmcompany{Ansys France}
+\setutbmcompanyaddress{35-37 Rue Louis Guérin, \\ 69100 Villeurbanne}
+\setutbmcompanywebsite{https://www.ansys.com}
+\setutbmcompanytutor{Frédéric Thevenon}
+\setutbmschooltutor{Jean-Charles Créput}
+\setutbmabstract{
+
+Solvers are computational tools or algorithm used to find numerical solution of equation or
+system of equations. In particular, eigensolver finds eigenvalues and eigenvectors of a matrix,
+which are crucial in many scientific and engineering applications. \\
+
+Performance is a very important criterion for the development of these eigensolvers, which are required to solve very large problems. GPUs are hardware specially designed to accelerate linear algebra operations through parallel computing. So it's worth taking advantage of these capabilities to speed up solver computations. \\
+
+During this internship, I identified some orthogonalization algorithms that are more efficient on the GPU than on the CPU, making it possible to speed up certain phases of the solving process. I also benchmarked a new linear solver, and compared it to Ansys's linear solver. Finally, I started the GPU-based implementation of a new solver for quadratic eigenvalue problems.
+
+}
+
+%----------------------------------------
+% Document
+%----------------------------------------
+
+\graphicspath{{/assets/images/}}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+	\makeutbmfrontcover
+ 
+    \include{report}
+    
+	\printbibliography
+
+	\makeutbmbackcover
+\end{document}

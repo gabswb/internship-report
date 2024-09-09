@@ -1,0 +1,49 @@
+% Change glossary color to black
+\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}}
+
+% inner product command
+\newcommand{\innerprod}[2]{\langle #1, #2 \rangle}
+
+% Prettier `C++`
+\def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}}
+
+% Change Require and Ensure in algorithmic
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+
+% Change algorithmic comment style
+\newcommand{\LineComment}[1]{\texttt{ \# #1}}
+
+% GS routines names
+\newcommand{\cgs}[0]{\texttt{CGS} }
+\newcommand{\cgsi}[0]{\texttt{CGS2} }
+\newcommand{\mgs}[0]{\texttt{MGS} }
+\newcommand{\bcgs}[0]{\texttt{BCGS} }
+\newcommand{\bcgsi}[0]{\texttt{BCGS2} }
+\newcommand{\bmgs}[0]{\texttt{BMGS} }
+
+% Set color of \refeq
+\newcommand*{\SavedEqref}{}
+\let\SavedEqref\eqref
+\renewcommand*{\eqref}[1]{%
+  \begingroup
+    \hypersetup{
+      linkcolor=blue,
+      linkbordercolor=blue,
+    }%
+    \SavedEqref{#1}%
+  \endgroup
+}
+
+% Set color of ref for algorithms
+\newcommand*{\refalg}[1]{%
+  \begingroup
+    \hypersetup{
+      linkcolor=green,
+      linkbordercolor=green,
+    }%
+    (\ref{#1})%
+  \endgroup
+}
+
+
